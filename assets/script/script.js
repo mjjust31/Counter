@@ -1,40 +1,29 @@
-let decreaseEl = document.querySelector("#decrease");
-let resetEl = document.querySelector("#reset");
-let increaseEl = document.querySelector("#increase");
-let counterEl = document.querySelector(".counter");
-let counterValue = counterEl.innerText;
-console.log(decreaseEl);
-console.log(resetEl);
-console.log(increaseEl);
-console.log(counterEl);
+let count = 0;
 
-let count = counterValue;
+const value = document.querySelector(".counter");
+const btns = document.querySelectorAll(".btn");
 
-resetEl.addEventListener("click", function () {
-  count = 0;
-  counterEl.textContent = count;
-  changeCounterColor();
-});
-
-decreaseEl.addEventListener("click", function () {
-  count -= 1;
-  changeCounterColor();
-  counterEl.textContent = count;
-});
-
-increaseEl.addEventListener("click", function () {
-  // count = count + 1;
-  count += 1;
-  changeCounterColor();
-  counterEl.textContent = count;
+btns.forEach(function (btn) {
+  btn.addEventListener("click", function (event) {
+    const styles = event.currentTarget.classList;
+    if (styles.contains("decrease")) {
+      count--;
+    } else if (styles.contains("increase")) {
+      count++;
+    } else {
+      count = 0;
+    }
+    value.textContent = count;
+    changeCounterColor();
+  });
 });
 
 function changeCounterColor() {
   if (count > 0) {
-    counterEl.setAttribute("style", "color:green");
+    value.setAttribute("style", "color:green");
   } else if (count < 0) {
-    counterEl.setAttribute("style", "color:red");
+    value.setAttribute("style", "color:red");
   } else {
-    counterEl.setAttribute("style", "color:black");
+    value.setAttribute("style", "color:black");
   }
 }
