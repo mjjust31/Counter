@@ -1,0 +1,19 @@
+.counter-container {
+  display: grid;
+  place-items: center;
+  margin: 100px auto;
+  padding: 50px;
+  background-color: aqua;
+  width: 50%;
+}
+
+.counter-container button {
+  margin: 30px;
+  padding: 10px 20px;
+}
+
+.counter {
+  margin: 20px;
+  padding: 20px;
+  font-size: 100px;
+}
